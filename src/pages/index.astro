@@ -1,0 +1,70 @@
+---
+import Base from '../layouts/Base.astro';
+import CaseStudyCard from '../components/CaseStudyCard.astro';
+import PostList from '../components/PostList.astro';
+import { services } from '../data/services';
+import { getCaseStudies, getPosts } from '../lib';
+
+// Featured case studies first, then the newest of the rest.
+const caseStudies = (await getCaseStudies())
+  .sort((a, b) => Number(b.data.featured) - Number(a.data.featured))
+  .slice(0, 2);
+const posts = (await getPosts()).slice(0, 3);
+---
+<Base>
+  <section class="hero">
+    <span class="tag">// embedded software consulting</span>
+    <h1>Firmware that ships, and keeps working in the field.</h1>
+    <p class="lede muted">Independent embedded systems engineering for hardware teams, from board bring-up to production.</p>
+    <div class="actions">
+      <a class="btn" href="/contact/">Start a project</a>
+      <a class="btn ghost" href="/work/">See case studies</a>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-label">Services</h2>
+    <div class="services">
+      {services.map((s, i) => (
+        <div class="svc">
+          <span class="accent num">{String(i + 1).padStart(2, '0')}</span>
+          <h3>{s.title}</h3>
+          <p class="muted">{s.body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  {caseStudies.length > 0 && (
+    <section>
+      <div class="head"><h2 class="section-label">Case studies</h2><a href="/work/">All work →</a></div>
+      <div class="cases">{caseStudies.map((e) => <CaseStudyCard entry={e} />)}</div>
+    </section>
+  )}
+
+  {posts.length > 0 && (
+    <section>
+      <div class="head"><h2 class="section-label">Writing</h2><a href="/writing/">All posts →</a></div>
+      <PostList posts={posts} />
+    </section>
+  )}
+</Base>
+
+<style>
+  .hero { padding: 90px 0 90px; }
+  .tag { display: inline-block; font-size: 13px; color: var(--accent); border: 1px solid #2c4a38; background: #12201a; padding: 4px 10px; border-radius: 4px; margin-bottom: 28px; }
+  h1 { font-size: clamp(34px, 6vw, 56px); font-weight: 750; margin: 0 0 24px; max-width: 900px; letter-spacing: -0.035em; }
+  .lede { font-size: 17px; max-width: 620px; margin: 0 0 36px; }
+  .actions { display: flex; gap: 10px; flex-wrap: wrap; }
+  section + section { margin-top: 72px; }
+  .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .svc { background: var(--panel); padding: 28px; }
+  .num { font-size: 13px; }
+  .svc h3 { margin: 10px 0 8px; font-size: 18px; }
+  .svc p { margin: 0; font-size: 13.5px; }
+  .head { display: flex; justify-content: space-between; align-items: baseline; }
+  .head a { color: var(--muted); font-size: 13px; text-decoration: none; }
+  .head a:hover { color: var(--ink); }
+  .cases { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 760px) { .services, .cases { grid-template-columns: 1fr; } .hero { padding: 50px 0 60px; } }
+</style>

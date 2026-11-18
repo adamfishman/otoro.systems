@@ -1,0 +1,19 @@
+---
+import Base from '../../layouts/Base.astro';
+import CaseStudyCard from '../../components/CaseStudyCard.astro';
+import { getCaseStudies } from '../../lib';
+const entries = await getCaseStudies();
+---
+<Base title="Work" description="Case studies from Otoro Systems embedded software projects.">
+  <h1 class="page-title">Work</h1>
+  <p class="muted intro">Selected embedded software projects.</p>
+  {entries.length > 0
+    ? <div class="grid">{entries.map((e) => <CaseStudyCard entry={e} />)}</div>
+    : <p class="muted">Case studies coming soon.</p>}
+</Base>
+<style>
+  .page-title { font-size: 40px; margin: 40px 0 8px; }
+  .intro { margin: 0 0 40px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 760px) { .grid { grid-template-columns: 1fr; } }
+</style>
