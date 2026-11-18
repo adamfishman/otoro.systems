@@ -18,7 +18,6 @@ The public website for **Otoro Systems LLC**, a single-member embedded software 
 | `privacy.html`, `security.html`, `subprocessors.html` | Real legal/compliance pages. Standalone HTML with inline styles, no Jekyll front matter, so they're copied through as-is. |
 | `_includes/header.html` | Empty include. |
 | `_config.yml` | `theme: jekyll-theme-slate` and nothing else. |
-| `cuydem/` | A **prebuilt** create-react-app bundle served at `/cuydem/`. Its source isn't in this repo. Don't edit the minified files. Keep the path working unless told otherwise. |
 | `CNAME` | Custom domain. Must keep working through any hosting migration. |
 | `README.md` | GitHub Pages boilerplate, not project docs. |
 
@@ -37,3 +36,4 @@ The public website for **Otoro Systems LLC**, a single-member embedded software 
 
 - Default branch is `master`. Work on a feature branch and don't push directly to `master`.
 - Don't commit `.DS_Store` or build output (`_site/`, `dist/`, etc.).
+- This repo holds only the company website. Other apps (e.g. the former `cuydem` app) live in their own repositories. Don't add them back here.
