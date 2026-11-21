@@ -11,8 +11,7 @@ Stack: **Astro** (fully static output) + **Keystatic** (editing UI for Markdown 
 ## Status
 
 - **Content is placeholder.** Services (`src/data/services.ts`), About, Contact copy, and the files in `src/content/` are marked "Placeholder". Replace or delete them before launch. Don't invent real-sounding clients, projects, results or credentials. Ask the owner for facts.
-- **Hosting migration in progress.** Production is still GitHub Pages (`.github/workflows/gh-pages.yml` deploys `master`). Cloudflare config (`wrangler.jsonc`) is ready but not yet connected. Cutover steps are below.
-- The owner intends to make this repo **private**. On GitHub Free that breaks GitHub Pages, so do it only after the Cloudflare cutover.
+- **Hosting migration in progress.** GitHub Pages has been removed and the repo is private. Cloudflare config (`wrangler.jsonc`) is ready but not yet connected, so the site is offline until the cutover steps below are done.
 
 ## Commands
 
@@ -41,7 +40,6 @@ Always run `npm run check` and `npm run build` before committing. CI runs both o
 | `src/lib.ts` | Collection helpers. Drafts (`draft: true`) show in dev only. |
 | `keystatic.config.ts` | Editor config. Field names/types must match `src/content.config.ts`. |
 | `public/privacy.html`, `security.html`, `subprocessors.html` | Compliance pages, served as-is (standalone HTML). |
-| `public/CNAME`, `public/.assetsignore` | CNAME is for GitHub Pages only. `.assetsignore` keeps it off Cloudflare. |
 | `wrangler.jsonc` | Cloudflare Worker (static assets only, no Worker script). |
 
 ## Design
@@ -65,7 +63,6 @@ Direction "B / technical": dark background (`#0e1113`) with a faint 48px grid, p
 
 1. Cloudflare dashboard → Workers & Pages → Create → Import a repository → this repo. Build command `npm run build`, deploy command `npx wrangler deploy`. Branch previews come for free.
 2. Check the `*.workers.dev` URL, then add the apex `otoro.systems` as the Worker's custom domain and 301-redirect `www.otoro.systems` to it.
-3. Once traffic is on Cloudflare: delete `.github/workflows/gh-pages.yml`, `public/CNAME` and `public/.assetsignore`, and disable Pages in the GitHub repo settings. Then the repo can go private.
 
 ## Working conventions
 
