@@ -5,7 +5,7 @@ date: 2020-01-01
 tags: [data, aws, product]
 ---
 
-From 2020 to 2023 I built software for Breakwall Analytics and Drink Modern, two companies working in beverage tech.
+From January 2020 to June 2023 I worked with Breakwall Analytics and Drink Modern, two beverage tech companies, first as a contractor and then full time.
 
 - Beer sales intelligence built on Untappd data, with AWS Lambda services written in Java.
 - A driver dispatch app with route sequencing, built during COVID.
