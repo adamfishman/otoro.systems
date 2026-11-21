@@ -1,0 +1,24 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { isoDate } from '../lib';
+interface Props { posts: CollectionEntry<'posts'>[] }
+const { posts } = Astro.props;
+---
+<ul class="posts">
+  {posts.map((p) => (
+    <li>
+      <a href={`/writing/${p.id}/`}>
+        <time datetime={p.data.date.toISOString()}>{isoDate(p.data.date)}</time>
+        <span>{p.data.title}</span>
+      </a>
+    </li>
+  ))}
+</ul>
+<style>
+  .posts { list-style: none; padding: 0; margin: 0; }
+  a { display: flex; gap: 24px; padding: 14px 0; border-top: 1px solid var(--line); text-decoration: none; }
+  li:last-child a { border-bottom: 1px solid var(--line); }
+  a:hover span { color: var(--accent); }
+  time { color: var(--muted); font-size: 13px; min-width: 96px; padding-top: 1px; }
+  @media (max-width: 560px) { a { flex-direction: column; gap: 2px; } }
+</style>

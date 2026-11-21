@@ -1,0 +1,73 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const siteName = 'Otoro Systems';
+const { title, description = 'Independent embedded software engineering consulting.' } = Astro.props;
+const fullTitle = title ? `${title} — ${siteName}` : `${siteName} — Embedded software consulting`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+
+const nav = [
+  { href: '/work/', label: 'Work' },
+  { href: '/writing/', label: 'Writing' },
+  { href: '/about/', label: 'About' },
+  { href: '/contact/', label: 'Contact' },
+];
+const current = Astro.url.pathname;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#0e1113" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="site-header">
+        <a class="logo" href="/"><span class="accent">&gt;_</span>otoro.systems</a>
+        <nav aria-label="Main">
+          {nav.map(({ href, label }) => (
+            <a href={href} aria-current={current.startsWith(href) ? 'page' : undefined}>{label}</a>
+          ))}
+        </nav>
+      </header>
+      <main>
+        <slot />
+      </main>
+      <footer class="site-footer">
+        <span>© {new Date().getFullYear()} Otoro Systems LLC</span>
+        <span class="links">
+          <a href="/privacy">Privacy</a>
+          <a href="/security">Security</a>
+          <a href="/subprocessors">Sub-processors</a>
+        </span>
+      </footer>
+    </div>
+  </body>
+</html>
+
+<style>
+  .site-header { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 28px 0; flex-wrap: wrap; }
+  .logo { font-weight: 650; text-decoration: none; letter-spacing: 0.01em; }
+  .logo span { margin-right: 8px; }
+  nav { display: flex; gap: 24px; flex-wrap: wrap; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 14px; }
+  nav a:hover, nav a[aria-current='page'] { color: var(--ink); }
+  main { min-height: 60vh; }
+  .site-footer { margin-top: 90px; border-top: 1px solid var(--line); padding: 26px 0 46px; color: var(--muted); font-size: 13px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .site-footer a { color: var(--muted); }
+  .links { display: flex; gap: 18px; }
+</style>
