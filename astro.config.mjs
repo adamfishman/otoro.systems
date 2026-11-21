@@ -8,7 +8,7 @@ import keystatic from '@keystatic/astro';
 const isDev = process.argv.includes('dev');
 
 export default defineConfig({
-  site: 'https://www.otoro.systems',
+  site: 'https://otoro.systems',
   build: { format: 'directory' },
   integrations: isDev ? [react(), keystatic()] : [],
 });

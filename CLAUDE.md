@@ -4,7 +4,7 @@ Guidance for Claude when working in this repository.
 
 ## What this is
 
-The public website for **Otoro Systems LLC**, a single-member embedded software engineering consulting firm, served at `www.otoro.systems`.
+The public website for **Otoro Systems LLC**, a single-member embedded software engineering consulting firm, served at `otoro.systems` (`www` redirects there).
 
 Stack: **Astro** (fully static output) + **Keystatic** (editing UI for Markdown content), hosted on **Cloudflare Workers static assets**. Cloudflare already manages DNS for the domain.
 
@@ -64,7 +64,7 @@ Direction "B / technical": dark background (`#0e1113`) with a faint 48px grid, p
 ## Cloudflare cutover (not done yet)
 
 1. Cloudflare dashboard → Workers & Pages → Create → Import a repository → this repo. Build command `npm run build`, deploy command `npx wrangler deploy`. Branch previews come for free.
-2. Check the `*.workers.dev` URL, then add custom domains `www.otoro.systems` (and apex `otoro.systems`, redirecting to www) on the Worker.
+2. Check the `*.workers.dev` URL, then add the apex `otoro.systems` as the Worker's custom domain and 301-redirect `www.otoro.systems` to it.
 3. Once traffic is on Cloudflare: delete `.github/workflows/gh-pages.yml`, `public/CNAME` and `public/.assetsignore`, and disable Pages in the GitHub repo settings. Then the repo can go private.
 
 ## Working conventions

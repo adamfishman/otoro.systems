@@ -1,5 +1,5 @@
 # Interim deploy: builds the Astro site and publishes it to GitHub Pages on pushes to master.
-# Remove this workflow (and public/CNAME) once www.otoro.systems is served by Cloudflare.
+# Remove this workflow (and public/CNAME) once otoro.systems is served by Cloudflare.
 name: Deploy to GitHub Pages
 
 on:
