@@ -7,8 +7,8 @@ interface Props {
 }
 
 const siteName = 'Otoro Systems';
-const { title, description = 'Independent embedded software engineering consulting.' } = Astro.props;
-const fullTitle = title ? `${title} — ${siteName}` : `${siteName} — Embedded software consulting`;
+const { title, description = 'Independent software consulting. New products from idea to delivery, legacy modernization, integrations and data.' } = Astro.props;
+const fullTitle = title ? `${title} — ${siteName}` : `${siteName} — Software consulting`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 
 const nav = [

@@ -4,9 +4,9 @@ import CaseStudyCard from '../../components/CaseStudyCard.astro';
 import { getCaseStudies } from '../../lib';
 const entries = await getCaseStudies();
 ---
-<Base title="Work" description="Case studies from Otoro Systems embedded software projects.">
+<Base title="Work" description="Client work from Otoro Systems: CrashBay, Signet Jewelers, Avandra Imaging and earlier projects.">
   <h1 class="page-title">Work</h1>
-  <p class="muted intro">Selected embedded software projects.</p>
+  <p class="muted intro">Recent client work through Otoro Systems, plus a few highlights from earlier in my career.</p>
   {entries.length > 0
     ? <div class="grid">{entries.map((e) => <CaseStudyCard entry={e} />)}</div>
     : <p class="muted">Case studies coming soon.</p>}

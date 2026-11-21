@@ -13,12 +13,12 @@ const posts = (await getPosts()).slice(0, 3);
 ---
 <Base>
   <section class="hero">
-    <span class="tag">// embedded software consulting</span>
-    <h1>Firmware that ships, and keeps working in the field.</h1>
-    <p class="lede muted">Independent embedded systems engineering for hardware teams, from board bring-up to production.</p>
+    <span class="tag">// independent software consulting</span>
+    <h1>New products from idea to delivery. Legacy systems brought up to date.</h1>
+    <p class="lede muted">Otoro Systems is Adam Fishman, a full-stack engineer with 17+ years of building platforms, integrations and products across healthcare, fintech, retail and beverage tech.</p>
     <div class="actions">
       <a class="btn" href="/contact/">Start a project</a>
-      <a class="btn ghost" href="/work/">See case studies</a>
+      <a class="btn ghost" href="/work/">See the work</a>
     </div>
   </section>
 
@@ -33,6 +33,7 @@ const posts = (await getPosts()).slice(0, 3);
         </div>
       ))}
     </div>
+    <p class="muted note">I work across a wide toolset, from Rails, Java and Python to React and Cloudflare Workers, and I use modern AI-driven development every day to research, prototype and ship faster. Recent clients include CrashBay, Signet Jewelers and Avandra Imaging.</p>
   </section>
 
   {caseStudies.length > 0 && (
@@ -62,6 +63,7 @@ const posts = (await getPosts()).slice(0, 3);
   .num { font-size: 13px; }
   .svc h3 { margin: 10px 0 8px; font-size: 18px; }
   .svc p { margin: 0; font-size: 13.5px; }
+  .note { max-width: 760px; margin: 24px 0 0; font-size: 14px; }
   .head { display: flex; justify-content: space-between; align-items: baseline; }
   .head a { color: var(--muted); font-size: 13px; text-decoration: none; }
   .head a:hover { color: var(--ink); }
