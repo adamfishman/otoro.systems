@@ -2,6 +2,7 @@
 title: Placeholder blog post title
 description: A one-sentence summary used for search results and link previews.
 date: 2026-10-02
+draft: true
 ---
 
 **Placeholder.** Replace this with a real post, or delete the file.

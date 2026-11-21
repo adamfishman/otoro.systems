@@ -4,9 +4,9 @@ import PostList from '../../components/PostList.astro';
 import { getPosts } from '../../lib';
 const posts = await getPosts();
 ---
-<Base title="Writing" description="Notes on embedded software engineering from Otoro Systems.">
+<Base title="Writing" description="Notes on building and modernizing software, from Otoro Systems.">
   <h1 class="page-title">Writing</h1>
-  <p class="muted intro">Notes on embedded software engineering.</p>
+  <p class="muted intro">Notes on building and modernizing software.</p>
   {posts.length > 0 ? <PostList posts={posts} /> : <p class="muted">Posts coming soon.</p>}
 </Base>
 <style>

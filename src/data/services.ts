@@ -1,15 +1,14 @@
-// PLACEHOLDER: replace with the real service offerings.
 export const services = [
   {
-    title: 'Firmware',
-    body: 'Placeholder: bare-metal and RTOS development, device drivers, board bring-up.',
+    title: 'Idea to launch',
+    body: 'Take a product from a rough idea to something people use. Discovery, architecture, data model, backend, front end and the launch itself, with one person who sees it all the way through.',
   },
   {
-    title: 'Embedded Linux',
-    body: 'Placeholder: BSPs, kernel and driver work, build systems, OTA updates.',
+    title: 'Legacy modernization',
+    body: 'Bring aging applications onto modern stacks and hosting without stopping the business. Careful migrations when they fit, a full rebuild when that is the better call.',
   },
   {
-    title: 'Technical review',
-    body: 'Placeholder: architecture and code review, hard-bug hunting, second opinions.',
+    title: 'Integrations and data',
+    body: 'Connect the systems you already run. APIs, two-way partner integrations, ETL pipelines and data platforms that hold up in production.',
   },
 ];

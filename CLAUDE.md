@@ -4,13 +4,13 @@ Guidance for Claude when working in this repository.
 
 ## What this is
 
-The public website for **Otoro Systems LLC**, a single-member embedded software engineering consulting firm, served at `otoro.systems` (`www` redirects there).
+The public website for **Otoro Systems LLC**, a single-member software consulting firm, served at `otoro.systems` (`www` redirects there).
 
 Stack: **Astro** (fully static output) + **Keystatic** (editing UI for Markdown content), hosted on **Cloudflare Workers static assets**. Cloudflare already manages DNS for the domain.
 
 ## Status
 
-- **Content is placeholder.** Services (`src/data/services.ts`), About, Contact copy, and the files in `src/content/` are marked "Placeholder". Replace or delete them before launch. Don't invent real-sounding clients, projects, results or credentials. Ask the owner for facts.
+- **Content is real copy** drawn from the owner's resume. Don't invent clients, projects, results or credentials. Ask the owner for facts. The one post in `src/content/posts/` is still a placeholder and is marked `draft: true`.
 - **Hosting migration in progress.** GitHub Pages has been removed and the repo is private. Cloudflare config (`wrangler.jsonc`) is ready but not yet connected, so the site is offline until the cutover steps below are done.
 
 ## Commands
